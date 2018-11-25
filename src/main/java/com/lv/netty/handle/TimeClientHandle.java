@@ -2,6 +2,7 @@ package com.lv.netty.handle;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
@@ -36,6 +37,7 @@ public class TimeClientHandle extends ChannelInboundHandlerAdapter{
         byteBuf.readBytes(bytes);*/
         System.out.println("返回的数据:"+byteBuf);
 //        super.channelRead(ctx, msg);
+        ctx.close().addListener(ChannelFutureListener.CLOSE);// 关闭客户端
         ReferenceCountUtil.release(msg);//释放
     }
 

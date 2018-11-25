@@ -33,6 +33,7 @@ public class NettyServerDemo {
                     .option(ChannelOption.SO_BACKLOG,1024)
                     .childHandler(new ChildChannelHandler());
             ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
+            //这里可以绑定多个端口 在一台机器上
             channelFuture.channel().closeFuture().sync();//阻塞
         }finally {
             //优雅退出，释放线程池

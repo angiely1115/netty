@@ -21,7 +21,7 @@ import java.io.InputStreamReader;
  * @Version: 1.0
  * modified by:
  */
-public class EchoClient {
+public class  EchoClient {
     public void connect(String host,int port){
         EventLoopGroup clientGroup = new NioEventLoopGroup();
         Bootstrap bootstrap = new Bootstrap();
