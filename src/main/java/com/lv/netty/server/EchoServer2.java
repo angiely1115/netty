@@ -28,8 +28,11 @@ public class EchoServer2 {
         ServerBootstrap bootstrap = new ServerBootstrap();
         try {
             bootstrap.group(boosGroup,workerGroup).channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG,100)//option表示设置一些TCP协议的相关参数 option设置ServerSocketChannel childOption设置socketChannel
+                    //option表示设置一些TCP协议的相关参数 option设置ServerSocketChannel childOption设置socketChannel
+                    .option(ChannelOption.SO_BACKLOG,100)
+                    //设置boss线程处理器
                     .handler(new LoggingHandler(LogLevel.INFO))
+                    //设置work线程组处理器，就是我们的业务处理器
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {

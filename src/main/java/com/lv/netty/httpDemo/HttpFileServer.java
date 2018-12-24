@@ -1,4 +1,4 @@
-package com.lv.netty.http;
+package com.lv.netty.httpDemo;
 
 import com.lv.netty.handle.HttpFileServerHandle;
 import io.netty.bootstrap.Bootstrap;

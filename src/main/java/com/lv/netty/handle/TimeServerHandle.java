@@ -2,6 +2,7 @@ package com.lv.netty.handle;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -14,6 +15,8 @@ import java.nio.charset.Charset;
  * @Version: 1.0
  * modified by:
  */
+//保证线程安全
+@ChannelHandler.Sharable
 public class TimeServerHandle extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
